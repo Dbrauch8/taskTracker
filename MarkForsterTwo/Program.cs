@@ -56,17 +56,26 @@ namespace MarkForsterTwo
 
                     //DisplayList(myTasks);
                 }
-                //else if (input == "3")
-                //{
+                else if (input == "3") //********************************************************************************
+                {            //*******************************************************************************************************
+                             //*****************************************************************************************************
 
-                //    ModifyTasks(myTasks);
-                //}
+
+                    NewMethod(myTasks, input);
+                
+
+
+                //******************************************************************************************************************************
+                //**********************************************************************************************************************************
+
+
+
                 else
                 {
-                    Console.WriteLine("Invalid Input.. Please try again.");
-                    Console.ReadKey();
-                }
-            } while (!quit);
+                        Console.WriteLine("Invalid Input.. Please try again.");
+                        Console.ReadKey();
+                    }
+                } while (!quit);
 
             using (StreamWriter sw = new StreamWriter(@"c:\Users\dougc\testfile1.txt"))
             {
@@ -87,7 +96,7 @@ namespace MarkForsterTwo
             Console.WriteLine();
             for (int i = 0; i < myTasks.Count; ++i)
             {
-                Console.WriteLine($"{i + 1}.  {myTasks.Count()}");  //Adding task number**
+                Console.WriteLine($"{i + 1}.  {myTasks.ElementAt(i)}");  //Adding task number**
 
             }
             Console.Write("\nPress any key for the main menu.");
@@ -117,43 +126,7 @@ namespace MarkForsterTwo
 
         //private static void ModifyTasks(List<string> tasks)
         //{
-        //    Console.Clear();
-        //    Console.WriteLine("**** This is your list of Tasks****");
-        //    for (int i = 0; i < tasks.Count; ++i)
-        //    {
-        //        Console.WriteLine($"{i + 1}. {tasks[i]}"); // First display of list in ModifyTasks method*****
-        //    }
-        //    bool quit = false;
-
-        //    do
-        //    {
-        //        Console.WriteLine("--------------------------------");
-        //        Console.WriteLine(" 1. Delete a task");
-        //        Console.WriteLine(" 2. Edit a Task");
-        //        Console.WriteLine(" 3. Mark task complete");
-        //        Console.WriteLine(" 0. Quit");
-        //        string input = Console.ReadLine();
-
-        //        if (input == "0")
-        //        {
-        //            quit = true;
-        //        }
-        //        else if (input == "1")
-        //            DeleteItem(tasks);
-
-        //        else if (input == "2")
-        //        {
-        //            Console.Write("Which item would you like to modify? ");
-        //            //Console.ReadLine();
-        //            int item = int.Parse(Console.ReadLine());
-        //            Console.WriteLine("You selected item: " + item);
-        //            Console.ReadLine();
-        //        }
-        //        else if (input == "3")
-        //        {
-        //            MarkComplete(tasks);
-        //        }
-        //    } while (!quit);
+ 
         //}
         //private static void MarkComplete(List<string> tasks)
         //{
@@ -194,7 +167,48 @@ namespace MarkForsterTwo
         //}
 
     }
-}
+
+        private static void NewMethod(LinkedList<string> myTasks, string input)
+        {
+            Console.Clear();
+            Console.WriteLine("**** This is your list of Tasks****");
+            for (int i = 0; i < myTasks.Count; ++i)
+            {
+                Console.WriteLine($"{i + 1}. {myTasks.ElementAt(i)}"); // First display of list in ModifyTasks method*****
+            }
+            bool quit = false;
+
+            do
+            {
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine(" 1. Delete a task");
+                Console.WriteLine(" 2. Edit a Task");
+                Console.WriteLine(" 3. Mark task complete");
+                Console.WriteLine(" 0. Quit");
+                string newTask = Console.ReadLine();
+
+                if (input == "0")
+                {
+                    quit = true;
+                }
+                else if (input == "1")
+                        //DeleteItem(tasks);
+
+                    else if (input == "2")
+                {
+                    Console.Write("Which item would you like to modify? ");
+                    //Console.ReadLine();
+                    int item = int.Parse(Console.ReadLine());
+                    Console.WriteLine("You selected item: " + item);
+                    Console.ReadLine();
+                }
+                else if (input == "3")
+                {
+                    //MarkComplete(tasks);
+                }
+            } while (!quit);
+        }
+    }
 public class GenericList<T>
 {
     private class Node
