@@ -53,29 +53,19 @@ namespace MarkForsterTwo
                 else if (input == "2")
                 {
                     DisplayList(myTasks);
-
-                    //DisplayList(myTasks);
                 }
                 else if (input == "3") //********************************************************************************
-                {            //*******************************************************************************************************
-                             //*****************************************************************************************************
-
-
+                {
                     NewMethod(myTasks, input);
-                
-
-
-                //******************************************************************************************************************************
-                //**********************************************************************************************************************************
-
-
+                }
 
                 else
                 {
-                        Console.WriteLine("Invalid Input.. Please try again.");
-                        Console.ReadKey();
-                    }
-                } while (!quit);
+                    Console.WriteLine("Invalid Input.. Please try again.");
+                    Console.ReadKey();
+                }
+            }
+            while (!quit);
 
             using (StreamWriter sw = new StreamWriter(@"c:\Users\dougc\testfile1.txt"))
             {
@@ -89,6 +79,7 @@ namespace MarkForsterTwo
             //edge of main method
         }
 
+
         private static void DisplayList(LinkedList<string> myTasks)
         {
             Console.Clear();
@@ -101,7 +92,7 @@ namespace MarkForsterTwo
             }
             Console.Write("\nPress any key for the main menu.");
             Console.ReadKey();
-        }
+        }//****************
 
         private static void AddATask(LinkedList<string> myTasks)
         {
@@ -123,36 +114,6 @@ namespace MarkForsterTwo
                 { }
             }
         }
-
-            //private static void ModifyTasks(List<string> tasks)
-            //{
-
-            //}
-            //private static void MarkComplete(List<string> tasks)
-            //{
-            //    Console.WriteLine("Which item would you like to mark complete? ");
-            //    int item = int.Parse(Console.ReadLine());
-            //    int i = item - 1;
-            //    Console.ReadLine();
-
-            //    //tasks[0] += "new task"; **********************************************
-
-            //    for (i = 0; i < tasks.Count; ++i)
-            //    {
-            //        if (i > 0)
-            //        {
-            //            Console.ForegroundColor = ConsoleColor.DarkGray;
-            //            Console.WriteLine(tasks[i]);
-            //        }
-            //        //Console.WriteLine(tasks[i]);
-            //        Console.ResetColor();
-            //    }
-            //    //Console.ForegroundColor = ConsoleColor.White;
-            //}
-            //private static void DeleteItem(List<string> tasks)
-            //{
-
-    }
 
         private static void NewMethod(LinkedList<string> myTasks, string input)
         {
@@ -178,37 +139,24 @@ namespace MarkForsterTwo
                     quit = true;
                 }
                 else if (input == "1")
-            {
-            Console.Write("Which item would you like to delete? ");
-            //Console.ReadLine();
-            int item = int.Parse(Console.ReadLine());
-            Console.WriteLine("You selected task: " + item);
-            Console.ReadLine();
+                {
+                    Console.Write("Which item would you like to delete? ");
+                    //Console.ReadLine();
+                    int item = int.Parse(Console.ReadLine());
+                    Console.WriteLine("You selected task: " + item);
+                    Console.ReadLine();
                     int n = item - 1;
 
-            myTasks.Remove(myTasks.ElementAt(item- 1)); 
-            Console.WriteLine("**** This is your updated list of Tasks****");
-            for (int i = 0; i < myTasks.Count; ++i)
-            {
-                Console.WriteLine($"{i + 1}. {myTasks.ElementAt(i)}"); 
-            }
-            Console.ReadLine();
-        }
+                    myTasks.Remove(myTasks.ElementAt(item - 1));
+                    Console.WriteLine("**** This is your updated list of Tasks****");
+                    for (int i = 0; i < myTasks.Count; ++i)
+                    {
+                        Console.WriteLine($"{i + 1}. {myTasks.ElementAt(i)}");
+                    }
+                    Console.ReadLine();
+                }
 
-
-
-
-
-
-
-
-            }   
-                    
-
-
-
-
-                    else if (input == "2")
+                else if (input == "2")
                 {
                     Console.Write("Which item would you like to modify? ");
                     //Console.ReadLine();
@@ -218,11 +166,29 @@ namespace MarkForsterTwo
                 }
                 else if (input == "3")
                 {
-                    //MarkComplete(tasks);
+                    Console.WriteLine("Which item would you like to mark complete? ");
+                    int item = int.Parse(Console.ReadLine());
+                    int i = item - 1;
+                    Console.ReadLine();
+
+                    //tasks[0] += "new task"; **********************************************
+
+                    for (i = 0; i < myTasks.Count; ++i)
+                    {
+                        if (i > 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                            //Console.WriteLine(myTasks[i]);
+                        }
+                        //Console.WriteLine(tasks[i]);
+                        Console.ResetColor();
+                    }
+                    //Console.ForegroundColor = ConsoleColor.White;
                 }
             } while (!quit);
         }
-    }
+    } 
+}
 public class GenericList<T>
 {
     private class Node
