@@ -56,7 +56,7 @@ namespace MarkForsterTwo
                 }
                 else if (input == "3") //********************************************************************************
                 {
-                    NewMethod(myTasks, input);
+                    ModifyItem(myTasks, input);
                 }
 
                 else
@@ -115,14 +115,16 @@ namespace MarkForsterTwo
             }
         }
 
-        private static void NewMethod(LinkedList<string> myTasks, string input)
+        private static void ModifyItem(LinkedList<string> myTasks, string input)
         {
             Console.Clear();
             Console.WriteLine("**** This is your list of Tasks****");
             for (int i = 0; i < myTasks.Count; ++i)
             {
                 Console.WriteLine($"{i + 1}. {myTasks.ElementAt(i)}"); // First display of list in ModifyTasks method*****
+               
             }
+
             bool quit = false;
 
             do
@@ -132,7 +134,10 @@ namespace MarkForsterTwo
                 Console.WriteLine(" 2. Edit a Task");
                 Console.WriteLine(" 3. Mark task complete");
                 Console.WriteLine(" 0. Quit");
-                string newTask = Console.ReadLine();
+                Console.WriteLine("Make a selection from the options above: ");
+                Console.ReadLine();
+                input = Console.ReadLine();
+
 
                 if (input == "0")
                 {
