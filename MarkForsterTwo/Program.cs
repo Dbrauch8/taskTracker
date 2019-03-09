@@ -124,47 +124,33 @@ namespace MarkForsterTwo
             }
         }
 
-        //private static void ModifyTasks(List<string> tasks)
-        //{
- 
-        //}
-        //private static void MarkComplete(List<string> tasks)
-        //{
-        //    Console.WriteLine("Which item would you like to mark complete? ");
-        //    int item = int.Parse(Console.ReadLine());
-        //    int i = item - 1;
-        //    Console.ReadLine();
+            //private static void ModifyTasks(List<string> tasks)
+            //{
 
-        //    //tasks[0] += "new task"; **********************************************
+            //}
+            //private static void MarkComplete(List<string> tasks)
+            //{
+            //    Console.WriteLine("Which item would you like to mark complete? ");
+            //    int item = int.Parse(Console.ReadLine());
+            //    int i = item - 1;
+            //    Console.ReadLine();
 
-        //    for (i = 0; i < tasks.Count; ++i)
-        //    {
-        //        if (i > 0)
-        //        {
-        //            Console.ForegroundColor = ConsoleColor.DarkGray;
-        //            Console.WriteLine(tasks[i]);
-        //        }
-        //        //Console.WriteLine(tasks[i]);
-        //        Console.ResetColor();
-        //    }
-        //    //Console.ForegroundColor = ConsoleColor.White;
-        //}
-        //private static void DeleteItem(List<string> tasks)
-        //{
-        //    Console.Write("Which item would you like to delete? ");
-        //    //Console.ReadLine();
-        //    int item = int.Parse(Console.ReadLine());
-        //    Console.WriteLine("You selected item: " + item);
-        //    Console.ReadLine();
+            //    //tasks[0] += "new task"; **********************************************
 
-        //    tasks.RemoveAt(item - 1); //Magic line for deleting items from list****
-        //    Console.WriteLine("**** This is your updated list of Tasks****");
-        //    for (int i = 0; i < tasks.Count; ++i)
-        //    {
-        //        Console.WriteLine($"{i + 1}. {tasks[i]}"); // First display of list in ModifyTasks method*****
-        //    }
-        //    Console.ReadLine();
-        //}
+            //    for (i = 0; i < tasks.Count; ++i)
+            //    {
+            //        if (i > 0)
+            //        {
+            //            Console.ForegroundColor = ConsoleColor.DarkGray;
+            //            Console.WriteLine(tasks[i]);
+            //        }
+            //        //Console.WriteLine(tasks[i]);
+            //        Console.ResetColor();
+            //    }
+            //    //Console.ForegroundColor = ConsoleColor.White;
+            //}
+            //private static void DeleteItem(List<string> tasks)
+            //{
 
     }
 
@@ -192,7 +178,35 @@ namespace MarkForsterTwo
                     quit = true;
                 }
                 else if (input == "1")
-                        //DeleteItem(tasks);
+            {
+            Console.Write("Which item would you like to delete? ");
+            //Console.ReadLine();
+            int item = int.Parse(Console.ReadLine());
+            Console.WriteLine("You selected task: " + item);
+            Console.ReadLine();
+                    int n = item - 1;
+
+            myTasks.Remove(myTasks.ElementAt(item- 1)); 
+            Console.WriteLine("**** This is your updated list of Tasks****");
+            for (int i = 0; i < myTasks.Count; ++i)
+            {
+                Console.WriteLine($"{i + 1}. {myTasks.ElementAt(i)}"); 
+            }
+            Console.ReadLine();
+        }
+
+
+
+
+
+
+
+
+            }   
+                    
+
+
+
 
                     else if (input == "2")
                 {
