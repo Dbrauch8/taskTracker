@@ -162,9 +162,16 @@ namespace MarkForsterTwo
 
                 else if (input == "2")
                 {
-                    //Console.Write("Which item would you like to modify? ");
-                    ////Console.ReadLine();
-                    //int item = int.Parse(Console.ReadLine());
+                    for (int k = 0; k < myTasks.Count; ++k)
+                    {
+                        Console.WriteLine($"{k + 1}. {myTasks.ElementAt(k)}"); // First display of list in ModifyTasks method*****
+
+                    }
+                    Console.ReadLine();
+
+                    Console.Write("Which item would you like to modify? ");
+                    Console.ReadLine();
+                    int item = int.Parse(Console.ReadLine());
                     //Console.WriteLine("You selected item: " + item);
                     //Console.ReadLine();
                 }
@@ -173,31 +180,32 @@ namespace MarkForsterTwo
                 {
                     for (int k = 0; k < myTasks.Count; ++k)
                     {
-                        Console.WriteLine($"{k + 1}. {myTasks.ElementAt(k)}"); // First display of list in ModifyTasks method*****
-                        //Console.ReadLine();
+                        Console.WriteLine($"{k + 1}. {myTasks.ElementAt(k)}");
                     }
                     Console.ReadLine();
 
                     Console.Write("Which item would you like to mark complete? ");
                     int item = int.Parse(Console.ReadLine());
-                    //Console.ReadLine();
 
                     Console.WriteLine("You selected task: " + item);
                     Console.ReadLine();
 
-                    //tasks[0] += "new task"; **********************************************
-
-                    for (int k = 0; k < myTasks.Count; ++k)
+                    int n = item - 1;
+                    for (n = 0; n < myTasks.Count; ++n)
                     {
-                        if (i > 0)
+                        if (isActioned(n))
                         {
-                            Console.ForegroundColor = ConsoleColor.DarkGray;
-                            //Console.WriteLine(myTasks[i]);
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                            ;
                         }
-                        //Console.WriteLine(tasks[i]);
+                        Console.WriteLine();
+                        else
+                        {
+
+                        }
+                                
                         Console.ResetColor();
                     }
-                    //Console.ForegroundColor = ConsoleColor.White;
                 }
             } while (!quit);
         }
