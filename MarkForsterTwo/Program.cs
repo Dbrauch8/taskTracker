@@ -74,7 +74,6 @@ namespace MarkForsterTwo
                     sw.WriteLine(newTask);  // write task to file
                 }
                 Console.ReadLine();
-
             }
             //edge of main method
         }
@@ -117,16 +116,15 @@ namespace MarkForsterTwo
 
         private static void ModifyItem(LinkedList<string> myTasks, string input)
         {
+
             Console.Clear();
             Console.WriteLine("**** This is your list of Tasks****");
             for (int i = 0; i < myTasks.Count; ++i)
             {
                 Console.WriteLine($"{i + 1}. {myTasks.ElementAt(i)}"); // First display of list in ModifyTasks method*****
-               
             }
 
             bool quit = false;
-
             do
             {
                 Console.WriteLine("--------------------------------");
@@ -135,9 +133,8 @@ namespace MarkForsterTwo
                 Console.WriteLine(" 3. Mark task complete");
                 Console.WriteLine(" 0. Quit");
                 Console.WriteLine("Make a selection from the options above: ");
-                Console.ReadLine();
+                //Console.ReadLine();
                 input = Console.ReadLine();
-
 
                 if (input == "0")
                 {
@@ -145,40 +142,52 @@ namespace MarkForsterTwo
                 }
                 else if (input == "1")
                 {
-                    Console.Write("Which item would you like to delete? ");
-                    //Console.ReadLine();
-                    int item = int.Parse(Console.ReadLine());
-                    Console.WriteLine("You selected task: " + item);
-                    Console.ReadLine();
-                    int n = item - 1;
-
-                    myTasks.Remove(myTasks.ElementAt(item - 1));
-                    Console.WriteLine("**** This is your updated list of Tasks****");
                     for (int i = 0; i < myTasks.Count; ++i)
                     {
-                        Console.WriteLine($"{i + 1}. {myTasks.ElementAt(i)}");
+                        Console.WriteLine($"{i + 1}. {myTasks.ElementAt(i)}"); // First display of list in ModifyTasks method*****
                     }
                     Console.ReadLine();
+                    Console.Write("Which item would you like to delete? ");
+                    int item = int.Parse(Console.ReadLine());
+                    //Console.ReadLine();
+
+                    Console.WriteLine("You selected task: " + item);
+                    Console.ReadLine();
+
+                    int n = item - 1;
+                    myTasks.Remove(myTasks.ElementAt(item - 1));
+                    Console.WriteLine("**** This is your updated list of Tasks****");
+
                 }
 
                 else if (input == "2")
                 {
-                    Console.Write("Which item would you like to modify? ");
+                    //Console.Write("Which item would you like to modify? ");
+                    ////Console.ReadLine();
+                    //int item = int.Parse(Console.ReadLine());
+                    //Console.WriteLine("You selected item: " + item);
                     //Console.ReadLine();
-                    int item = int.Parse(Console.ReadLine());
-                    Console.WriteLine("You selected item: " + item);
-                    Console.ReadLine();
                 }
+
                 else if (input == "3")
                 {
-                    Console.WriteLine("Which item would you like to mark complete? ");
+                    for (int k = 0; k < myTasks.Count; ++k)
+                    {
+                        Console.WriteLine($"{k + 1}. {myTasks.ElementAt(k)}"); // First display of list in ModifyTasks method*****
+                        //Console.ReadLine();
+                    }
+                    Console.ReadLine();
+
+                    Console.Write("Which item would you like to mark complete? ");
                     int item = int.Parse(Console.ReadLine());
-                    int i = item - 1;
+                    //Console.ReadLine();
+
+                    Console.WriteLine("You selected task: " + item);
                     Console.ReadLine();
 
                     //tasks[0] += "new task"; **********************************************
 
-                    for (i = 0; i < myTasks.Count; ++i)
+                    for (int k = 0; k < myTasks.Count; ++k)
                     {
                         if (i > 0)
                         {
@@ -192,7 +201,7 @@ namespace MarkForsterTwo
                 }
             } while (!quit);
         }
-    } 
+    }
 }
 public class GenericList<T>
 {
