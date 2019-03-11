@@ -188,19 +188,16 @@ namespace MarkForsterTwo
                     Console.ReadLine();
 
                     int n = item - 1;
-                    for (n = 0; n < myTasks.Count; ++n)
+                    for (int i = 0; i < myTasks.Count; ++i)
                     //for (myTasks.ElementAt(n))
                     {
-                        if (n < myTasks.Count() && n > 0)
+                        if (i == n)
                         {
-                            myTasks.ElementAt(n);
                             Console.ForegroundColor = ConsoleColor.DarkGray;
-                            Console.WriteLine(myTasks.ElementAt(n));
-                            Console.ResetColor();
                         }
-                        else
-                        {
-                        }
+
+                            Console.WriteLine(myTasks.ElementAt(i));
+                            Console.ForegroundColor = ConsoleColor.Gray;
                     }
                             Console.ReadLine();
                     for (int k = 0; k < myTasks.Count; ++k)
