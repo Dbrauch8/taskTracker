@@ -77,8 +77,6 @@ namespace MarkForsterTwo
             }
             //edge of main method
         }
-
-
         private static void DisplayList(LinkedList<string> myTasks)
         {
             Console.Clear();
@@ -113,7 +111,6 @@ namespace MarkForsterTwo
                 { }
             }
         }
-
         private static void ModifyItem(LinkedList<string> myTasks, string input)
         {
 
@@ -172,7 +169,7 @@ namespace MarkForsterTwo
                     Console.Write("Which item would you like to modify? ");
                     Console.ReadLine();
                     int item = int.Parse(Console.ReadLine());
-                    //Console.WriteLine("You selected item: " + item);
+                    Console.WriteLine("You selected item: " + item);
                     //Console.ReadLine();
                 }
 
@@ -182,59 +179,65 @@ namespace MarkForsterTwo
                     {
                         Console.WriteLine($"{k + 1}. {myTasks.ElementAt(k)}");
                     }
-                    Console.ReadLine();
 
                     Console.Write("Which item would you like to mark complete? ");
                     int item = int.Parse(Console.ReadLine());
+                    Console.ReadLine();
 
                     Console.WriteLine("You selected task: " + item);
                     Console.ReadLine();
 
                     int n = item - 1;
                     for (n = 0; n < myTasks.Count; ++n)
+                    //for (myTasks.ElementAt(n))
                     {
-                        if (isActioned(n))
+                        if (n < myTasks.Count() && n > 0)
                         {
-                        Console.ForegroundColor = ConsoleColor.DarkGray;
-                            ;
+                            myTasks.ElementAt(n);
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                            Console.WriteLine(myTasks.ElementAt(n));
+                            Console.ResetColor();
                         }
-                        Console.WriteLine();
                         else
                         {
-
                         }
-                                
-                        Console.ResetColor();
                     }
+                            Console.ReadLine();
+                    for (int k = 0; k < myTasks.Count; ++k)
+                    {
+                        Console.WriteLine($"{k + 1}. {myTasks.ElementAt(k)}"); // First display of list in ModifyTasks method*****
+
+                    }
+                    Console.ReadLine();
                 }
             } while (!quit);
         }
     }
-}
-public class GenericList<T>
-{
-    private class Node
+    public class GenericList<T>
     {
-        public Node Next;
-        public T Data;
-    }
-    private Node head = null;
-    public void AddNode(T t)
-    {
-        Node newNode = new Node();
-        newNode.Next = head;
-        newNode.Data = t;
-        head = newNode;
-    }
-    public T GetLast()
-    {
-        T temp = default(T);
-        Node current = head;
-        while (current != null)
+        private class Node
         {
-            temp = current.Data;
-            current = current.Next;
+            public Node Next;
+            public T Data;
         }
-        return temp;
+        private Node head = null;
+        public void AddNode(T t)
+        {
+            Node newNode = new Node();
+            newNode.Next = head;
+            newNode.Data = t;
+            head = newNode;
+        }
+        public T GetLast()
+        {
+            T temp = default(T);
+            Node current = head;
+            while (current != null)
+            {
+                temp = current.Data;
+                current = current.Next;
+            }
+            return temp;
+        }
     }
 }
