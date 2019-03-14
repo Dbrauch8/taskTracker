@@ -162,7 +162,6 @@ namespace MarkForsterTwo
                     for (int k = 0; k < myTasks.Count; ++k)
                     {
                         Console.WriteLine($"{k + 1}. {myTasks.ElementAt(k)}"); // First display of list in ModifyTasks method*****
-
                     }
                     Console.ReadLine();
 
@@ -170,6 +169,8 @@ namespace MarkForsterTwo
                     Console.ReadLine();
                     int item = int.Parse(Console.ReadLine());
                     Console.WriteLine("You selected item: " + item);
+                    Console.WriteLine (myTasks.ElementAt(item));
+                    //myTasks.AddLast(item);
                     //Console.ReadLine();
                 }
 
